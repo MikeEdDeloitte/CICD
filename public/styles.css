@@ -4,6 +4,7 @@ h1 {
 
 body {
 	font-family: 'Source Sans Pro' ;
+	background-color: #EDD9A3;
 	width: 50%;
 	margin-left: 25%;
 	text-align: justify;
@@ -22,7 +23,7 @@ button {
 }
 
 #generate {
-	background-color: #09f;
+	background-color: #846C5B;
 }
 
 #copy {
