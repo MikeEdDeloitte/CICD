@@ -1,9 +1,12 @@
 $("#copy").click(() => {
 	// let content = $("#lorem")
 	let content = document.getElementById("lorem")
-	console.log(content.textContent)
-	navigator.clipboard.writeText(content.textContent)
-	alert("COPIED")
+	if (content.textContent !== "\n"){
+		navigator.clipboard.writeText(content.textContent)
+		alert("COPIED")
+	} else {
+		alert("No text to copy")
+	}
 })
 $("#generate").click(function () {
 	var lorem = $("#lorem");
