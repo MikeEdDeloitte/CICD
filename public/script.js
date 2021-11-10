@@ -1,3 +1,10 @@
+$("#copy").click(() => {
+	// let content = $("#lorem")
+	let content = document.getElementById("lorem")
+	console.log(content.textContent)
+	navigator.clipboard.writeText(content.textContent)
+	alert("COPIED")
+})
 $("#generate").click(function () {
 	var lorem = $("#lorem");
 	lorem.html("");
@@ -9,9 +16,9 @@ Picanha cupidatat flank t-bone fugiat culpa minim et ea. Do cupim buffalo, salam
 	var quantity = $("#quantity")[0].valueAsNumber;
 	for (var i = 0; i < quantity; i++) {
 		if (data[i] !== undefined) {
-			lorem.append("<p>" + data[i] + "</p>");
+			lorem.append("<p>" + data[i] + "</p>\n");
 		} else {
-			alert("You asked for to much ipsum. I gave you as much as I can, Also this is dev!");
+			alert("You asked for to much ipsum. I gave you as much as I can");
 			return
 		}
 	}
