@@ -1,3 +1,4 @@
+#[START cloudbuild-delivery]
 steps:
 # This step deploys the new version of our container image
 # in the hello-cloudbuild Kubernetes Engine cluster.
@@ -9,13 +10,13 @@ steps:
   - 'kubernetes.yaml'
   env:
   - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=lorem-ipsum-app'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
 
 # This step copies the applied manifest to the production branch
 # The COMMIT_SHA variable is automatically
 # replaced by Cloud Build.
 - name: 'gcr.io/cloud-builders/git'
-  id: Copy to main
+  id: Copy to production branch
   entrypoint: /bin/sh
   args:
   - '-c'
@@ -30,4 +31,5 @@ steps:
     git commit -m "Manifest from commit $COMMIT_SHA
     $(git log --format=%B -n 1 $COMMIT_SHA)" && \
     # Push the changes back to Cloud Source Repository
-    git push main
+    git push origin production
+# [END cloudbuild-delivery]
